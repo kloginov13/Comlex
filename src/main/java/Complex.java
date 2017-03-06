@@ -95,5 +95,85 @@ public class Complex {
         return ( dAnswer );
     }
 
+    public String Conj() {
+        this.re = re;
+        this.im = -im;
+        if (im < 0)
+            return re + "-" + -im + "i";
+        else
+            return re + "+" + im + "i";
+
+    }
+
+    public double Arg(){
+        double arg;
+        if (re == 0)
+            if(im > 0)
+                 return arg = Math.PI/2;
+            else
+                 return arg = -Math.PI/2;
+        else
+        if (re > 0)
+            return arg = Math.atan(im/re);
+        else if (im >= 0)
+                return arg = Math.PI + Math.atan2(re,im);
+            else
+                return arg = -Math.PI + Math.atan(im/re);
+    }
+
+
+    public void quadraticRoot (double a, double b, double c) {
+        Complex z1 = new Complex(0.0, 0.0);
+        Complex z2 = new Complex(0.0, 0.0);
+        double d = Math.pow(b, 2) - 4 * a * c;
+        if (d > 0) {
+            z1.re = (-b + Math.sqrt(d)) / (2 * a);
+            z2.re = (-b - Math.sqrt(d)) / (2 * a);
+            z1.im = 0.0;
+            z2.im = 0.0;
+        }
+        if (d == 0.0) {
+            z1.re = -b / 2 * a;
+            z1.im = 0.0;
+        }
+        if (d < 0) {
+            z1.re = -b / 2 * a;
+            z1.im = Math.sqrt(-d) / (2 * a);
+            z2.re = -b / 2 * a;
+            z2.im = -Math.sqrt(-d) / (2 * a);
+        }
+        System.out.println("A =" + a + " " + "B = " + b + " " + "C = " + c + " " + "D = " + d);
+        System.out.println("Z1 = " + z1 + "  " + "Z2 = " + z2);
+        }
+
+    public void biquadraticRoot (double a, double b, double c) {
+        Complex z1 = new Complex(0.0, 0.0);
+        Complex z2 = new Complex(0.0, 0.0);
+        Complex x1 = new Complex();
+        Complex x2 = new Complex();
+        x1.re = z1.re * z1.re;
+        x2.re = z2.re * z2.re;
+        double d = Math.pow(b, 2) - 4 * a * c;
+        if (d > 0) {
+            x1.re = (-b + Math.sqrt(d)) / (2 * a);
+            x2.re = (-b - Math.sqrt(d)) / (2 * a);
+            z1.im = 0.0;
+            z2.im = 0.0;
+        }
+        if (d == 0.0) {
+            z1.re = -b / 2 * a;
+            z1.im = 0.0;
+        }
+        if (d < 0) {
+            z1.re = -b / 2 * a;
+            z1.im = Math.sqrt(-d) / (2 * a);
+            z2.re = -b / 2 * a;
+            z2.im = -Math.sqrt(-d) / (2 * a);
+        }
+        System.out.println("A =" + a + " " + "B = " + b + " " + "C = " + c + " " + "D = " + d);
+        System.out.println("Z1 = " + z1 + "  " + "Z2 = " + z2);
+    }
+
+
 
 }
